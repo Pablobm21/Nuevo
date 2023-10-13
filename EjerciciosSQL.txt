@@ -57,7 +57,7 @@ https://superalumnos.net/files/EjerciciosSQL.pdf
 
 ------------------------------------------------------------
 
-1.
+1.Select 
 
 
 
