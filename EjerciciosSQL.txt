@@ -1,4 +1,5 @@
 
+
 https://superalumnos.net/files/EjerciciosSQL.pdf
 
 1.Select nombre from artículos;
@@ -53,3 +54,11 @@ https://superalumnos.net/files/EjerciciosSQL.pdf
 19.Update articulos set precio= precio* 0.9;
 20.Update articulos set precio=precio-10
    where precio >= 120;
+
+------------------------------------------------------------
+
+1.
+
+
+
+
