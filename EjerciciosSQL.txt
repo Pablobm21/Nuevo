@@ -1,0 +1,55 @@
+
+https://superalumnos.net/files/EjerciciosSQL.pdf
+
+1.Select nombre from artículos;
+2.Select nombre,precio from artículos;
+3.Select nombre from productos
+ where precio <= 200;
+4.Select * from articulos
+  where precio between 60 and 120;
+5.Select nombre, precio*166,386 as pesetas
+  from articulos;
+6.Select avg(precio) from articulos;
+7.Select avg(a.precio) from 
+  articulos as a , fabricante as f
+  where a.fabricante= f.codigo
+  and f.codigo=2;
+8.Select count(*) from articulos
+  where precio >=180;
+9.Select nombre, precio from articulos
+  where precio >=180
+  order by precio desc, Nombre;
+10.Select * from articulos
+   inner join fabricante on
+   articulos.fabricante=fabricante.codigo;
+11.Select a.nombre,a.precio,f.nombre
+   from articulos as a inner join
+   fabricante as f on a.fabricante=
+   f.codigo;
+12.Select avg(precio), fabricante
+   from articulos group by fabricante;
+13.Select avg(a.precio), f.nombre
+   from articulos as a inner join
+   fabricante as f on a.fabricante=
+   f.codigo
+   group by f.nombre;
+14.Select f.nombre, avg(a.precio) from articulos as a
+   inner join fabricante as f on a.fabricante
+   = f.codigo
+   group by f.nombre
+   having avg(a.precio) >=150;
+15.Select nombre, precio 
+   from articulos
+   where precio= (select min(precio) from articulos);
+16.Select f.nombre, a.nombre, a.precio 
+   from articulos as a inner join fabricante as f
+   on a.fabricante = f.codigo
+   where precio=(select max(a.precio) from articulos
+   where a.fabricante=f.codigo);
+17.Insert into articulos(nombre,precio,fabricante) values 
+   ('altavoces', 70, 2);
+18.Update articulos set nombre='Impresora laser'
+   where codigo=8;
+19.Update articulos set precio= precio* 0.9;
+20.Update articulos set precio=precio-10
+   where precio >= 120;
