@@ -57,8 +57,47 @@ https://superalumnos.net/files/EjerciciosSQL.pdf
 
 ------------------------------------------------------------
 
-1.Select 
+1.Select apellidos from empleados;
+2.Select distinct apellidos from empleados;
+3.Select * from empleados where apellidos = 'Lopez';
+4.Select * from empleados where apellidos = 'Lopez'
+  or apellidos= 'Pérez';
+5.Select * from empleados where departamento= 14;
+6.Select * from empleados where departamento= 37
+  or departamento=77;   o in(37,77);
+7.Select * from empleados where apellidos like 'P%';
+8.Select SUM(presupuesto) as PresupuestoTotal
+  from departamento group by PresupuestoTotal;
+9.Select departamento, COUNT(e.nombre) from empleados
+  grup by departamento; 
+10.Select * from empleados e inner join
+   departamento d on e.departamento=d.codigo;
+11.Select e.nombre, e.apellidos, d.presupuesto, 
+   d.nombre from empleados e inner join departamento d
+   on e.departamento=d.codigo;
+12.Select e.nombre, e.apellidos from empleados e
+   inner join departamento d on e.departamento=
+   d.codigo where d.presupuesto > 60.000;
+13.Select * from departamento 
+   where presupuesto > (select avg(presupuesto) from
+   departamento);
+14.Select d.nombre from departamento d inner join
+   empleados e on d.codigo=e.departamento
+   group by d.nombre 
+   having count(*)>2;
 
-
-
-
+15.Insert into departamento(codigo,nombre,presupuesto) values
+   (11,'Calidad',40000);
+   Insert into empleados(nombre,apellidos,DNI) values
+   ('Esther','Vázquez', '89267108',11);
+16.Update departamento
+   set presupuesto= presupuesto * 0.9;
+17.Update empleados
+   set codigo=14 
+   where codigo=77;
+18.Delete from empleados
+   where departamento= 14;
+19.Delete from empleados
+   where departamento in(select codigo
+   from departamento where presupuesto>60000;
+20.Delete from empleados;
