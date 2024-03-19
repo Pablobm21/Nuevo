@@ -1,0 +1,103 @@
+
+
+https://superalumnos.net/files/EjerciciosSQL.pdf
+
+1.Select nombre from artículos;
+2.Select nombre,precio from artículos;
+3.Select nombre from productos
+ where precio <= 200;
+4.Select * from articulos
+  where precio between 60 and 120;
+5.Select nombre, precio*166,386 as pesetas
+  from articulos;
+6.Select avg(precio) from articulos;
+7.Select avg(a.precio) from 
+  articulos as a , fabricante as f
+  where a.fabricante= f.codigo
+  and f.codigo=2;
+8.Select count(*) from articulos
+  where precio >=180;
+9.Select nombre, precio from articulos
+  where precio >=180
+  order by precio desc, Nombre;
+10.Select * from articulos
+   inner join fabricante on
+   articulos.fabricante=fabricante.codigo;
+11.Select a.nombre,a.precio,f.nombre
+   from articulos as a inner join
+   fabricante as f on a.fabricante=
+   f.codigo;
+12.Select avg(precio), fabricante
+   from articulos group by fabricante;
+13.Select avg(a.precio), f.nombre
+   from articulos as a inner join
+   fabricante as f on a.fabricante=
+   f.codigo
+   group by f.nombre;
+14.Select f.nombre, avg(a.precio) from articulos as a
+   inner join fabricante as f on a.fabricante
+   = f.codigo
+   group by f.nombre
+   having avg(a.precio) >=150;
+15.Select nombre, precio 
+   from articulos
+   where precio= (select min(precio) from articulos);
+16.Select f.nombre, a.nombre, a.precio 
+   from articulos as a inner join fabricante as f
+   on a.fabricante = f.codigo
+   where precio=(select max(a.precio) from articulos
+   where a.fabricante=f.codigo);
+17.Insert into articulos(nombre,precio,fabricante) values 
+   ('altavoces', 70, 2);
+18.Update articulos set nombre='Impresora laser'
+   where codigo=8;
+19.Update articulos set precio= precio* 0.9;
+20.Update articulos set precio=precio-10
+   where precio >= 120;
+
+------------------------------------------------------------
+
+1.Select apellidos from empleados;
+2.Select distinct apellidos from empleados;
+3.Select * from empleados where apellidos = 'Lopez';
+4.Select * from empleados where apellidos = 'Lopez'
+  or apellidos= 'Pérez';
+5.Select * from empleados where departamento= 14;
+6.Select * from empleados where departamento= 37
+  or departamento=77;   o in(37,77);
+7.Select * from empleados where apellidos like 'P%';
+8.Select SUM(presupuesto) as PresupuestoTotal
+  from departamento group by PresupuestoTotal;
+9.Select departamento, COUNT(e.nombre) from empleados
+  grup by departamento; 
+10.Select * from empleados e inner join
+   departamento d on e.departamento=d.codigo;
+11.Select e.nombre, e.apellidos, d.presupuesto, 
+   d.nombre from empleados e inner join departamento d
+   on e.departamento=d.codigo;
+12.Select e.nombre, e.apellidos from empleados e
+   inner join departamento d on e.departamento=
+   d.codigo where d.presupuesto > 60.000;
+13.Select * from departamento 
+   where presupuesto > (select avg(presupuesto) from
+   departamento);
+14.Select d.nombre from departamento d inner join
+   empleados e on d.codigo=e.departamento
+   group by d.nombre 
+   having count(*)>2;
+
+15.Insert into departamento(codigo,nombre,presupuesto) values
+   (11,'Calidad',40000);
+   Insert into empleados(nombre,apellidos,DNI) values
+   ('Esther','Vázquez', '89267108',11);
+16.Update departamento
+   set presupuesto= presupuesto * 0.9;
+17.Update empleados
+   set codigo=14 
+   where codigo=77;
+18.Delete from empleados
+   where departamento= 14;
+19.Delete from empleados
+   where departamento in(select codigo
+   from departamento where presupuesto>60000;
+20.Delete from empleados;
